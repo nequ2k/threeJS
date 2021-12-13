@@ -279,7 +279,7 @@ function CreateHouses()
     const PathGeometry = new THREE.PlaneGeometry( 1, 13,4,4);
     const PathMaterial = new THREE.MeshBasicMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
 
-function CreatePath(d,x,z)
+function CreatePath(d,x,z,r)
 {
     const PathGeometry = new THREE.PlaneGeometry( 1, d,4,4);
     const PathMaterial = new THREE.MeshBasicMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
@@ -287,6 +287,7 @@ function CreatePath(d,x,z)
     Path.receiveShadow = true;
     Path.position.y = -0.99;
     Path.rotation.x = -0.5 * Math.PI;
+    Path.rotation.z = r * Math.PI; 
     Path.position.x = x;
     Path.position.z = z;
 
@@ -296,13 +297,13 @@ function CreatePath(d,x,z)
 
 for (let i = 1;i<=5;i++)
 {
-const testPath = CreatePath(14,-5.5*i,10); 
+const testPath = CreatePath(14,-5.5*i,10,1); 
 scene.add(testPath);
 }
 
 for (let i = 1;i<=5;i++)
 {
-const testPath = CreatePath(7,5.5*i,14); 
+const testPath = CreatePath(7,5.5*i,14,1); 
 scene.add(testPath);
 }
 
@@ -398,7 +399,15 @@ function CreateFence()
     }
     }
 
+
+    const ParkPath = CreatePath(15,-11,-12,-0.5);
+    scene.add(ParkPath); 
+    const ParkPath2 = CreatePath(16,-11,-12,1);
+    scene.add(ParkPath2); 
+    const ParkPath3 = CreatePath(16,-18,-12,1);
+    scene.add(ParkPath3); 
     
+
 
     // position and point the camera to the center of the scene
     camera.position.x = -20.0;
