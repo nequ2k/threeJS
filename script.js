@@ -385,16 +385,16 @@ function CreateFence()
     TestFence5.position.setX(-21.5);
 
     
-    for (let i=1;i<=6;i++)
+    for (let i=2;i<=10;i++)
     {
     if (i%2==0)
     {
-        const TestTree = CreateTree(8*i*0.6,8); 
+        const TestTree = CreateTree(8*i*0.3,8); 
         scene.add(TestTree);   
     }
     else 
     {
-    const TestTree = CreateTree(8*i*0.6,5); 
+    const TestTree = CreateTree(8*i*0.4,5); 
     scene.add(TestTree); 
     }
     }
@@ -406,6 +406,89 @@ function CreateFence()
     scene.add(ParkPath2); 
     const ParkPath3 = CreatePath(16,-18,-12,1);
     scene.add(ParkPath3); 
+
+
+function CreateBin(x,z)
+{
+    const BinGeometry = new THREE.CylinderGeometry( 0.15,0.15, 0.5, 5,5,true);
+    const BinMaterial = new THREE.MeshLambertMaterial( {color: 0x293d3d} );
+    const Bin = new THREE.Mesh( BinGeometry, BinMaterial );
+    Bin.position.x = x;
+    Bin.position.z = z; 
+    Bin.position.y = -0.8;
+    const BinGroup = new THREE.Group(); 
+    const BinRoofgeometry = new THREE.ConeGeometry( 0.2, 0.15, 8 );
+    const BinRoofmaterial = new THREE.MeshLambertMaterial( {color: 0x293d3e} );
+    const BinRoof = new THREE.Mesh( BinRoofgeometry, BinRoofmaterial );
+    BinRoof.position.x = x;
+    BinRoof.position.z = z; 
+    BinRoof.position.y = -0.5;
+    BinGroup.add( BinRoof, Bin );
+
+
+    return BinGroup;
+}
+
+const Bin1 = CreateBin(3.2,3.2);
+scene.add(Bin1); 
+
+const Bin2 = CreateBin(3.5,-3.2);
+scene.add(Bin2); 
+
+const Bin3 = CreateBin(-3.2,3.5);
+scene.add(Bin3); 
+
+const Bin4 = CreateBin(-3.2,-3.2);
+scene.add(Bin4); 
+
+
+for (let i=-29;i<=-9;i+=10)
+    {
+    const TestBin = CreateBin(i,3.2)
+    scene.add(TestBin); 
+    const TestBin2 = CreateBin(i,-3.2)
+    scene.add(TestBin2)
+
+    }
+for (let i=29;i>=9;i-=10)
+    {
+    const TestBin = CreateBin(i,3.2)
+    scene.add(TestBin); 
+    const TestBin2 = CreateBin(i,-3.2)
+    scene.add(TestBin2)
+
+    }
+
+function CreateBench(x,z,r)
+{
+    const Benchgeometry = new THREE.BoxGeometry( 0.9, 0.3, 0.3);
+    const Benchmaterial = new THREE.MeshLambertMaterial( {color: 0x804000} );
+    const Bench = new THREE.Mesh( Benchgeometry, Benchmaterial );
+    Bench.position.x = x;
+    Bench.position.z = z; 
+    Bench.position.y = -0.8;
+    Bench.rotation.y = r * Math.PI; 
+    return Bench; 
+    }
+
+    const Bench1 = CreateBench(-11.5,-7,-0.5);
+    scene.add(Bench1); 
+    const Bench2 = CreateBench(-11.5,-17,-0.5);
+    scene.add(Bench2); 
+    const Bench3 = CreateBench(-18.5,-7,-0.5);
+    scene.add(Bench3); 
+    const Bench4 = CreateBench(-18.5,-17,-0.5);
+    scene.add(Bench4); 
+
+
+    for (let i =-5;i>=-20;i-=4)
+    {
+        const ParkTree = CreateTree(i,-10.5);
+        scene.add(ParkTree); 
+        const ParkTree2 = CreateTree(i,-13.5);
+        scene.add(ParkTree2); 
+    }
+
     
 
 
