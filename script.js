@@ -26,7 +26,7 @@ window.onload = function () {
         // create the ground plane
         const planeGeometry = new THREE.PlaneGeometry( 60, 40, 1, 1 );
         //const planeMaterial = new THREE.MeshLambertMaterial( {color: 0x5555ff, transparent: true, opacity: 0.8, side: THREE.DoubleSide} );
-        const planeMaterial = new THREE.MeshStandardMaterial( {color: 0x004d00, transparent: true, opacity: 1, side: THREE.DoubleSide} );
+        const planeMaterial = new THREE.MeshLambertMaterial( {color: 0x004d00, transparent: false, opacity: 1, side: THREE.DoubleSide} );
         const plane = new THREE.Mesh( planeGeometry, planeMaterial );
         plane.receiveShadow = true;
 
@@ -47,14 +47,14 @@ window.onload = function () {
     {
         const StreetGroup = new THREE.Group();
         const Street1Geometry = new THREE.PlaneGeometry( 6, 40,4,4);
-        const Street1Material = new THREE.MeshLambertMaterial( {color: 0x00000,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+        const Street1Material = new THREE.MeshLambertMaterial( {color: 0x00000,transparent:false, opacity:1,  side: THREE.DoubleSide} );
         const Street1 = new THREE.Mesh( Street1Geometry, Street1Material );
         Street1.receiveShadow = true;
         Street1.position.set(0,-0.99,0);
         Street1.rotation.x = -0.5 * Math.PI;
 
         const Street2Geometry = new THREE.PlaneGeometry( 6, 60,4,4);
-        const Street2Material = new THREE.MeshLambertMaterial( {color: 0x00000,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+        const Street2Material = new THREE.MeshLambertMaterial( {color: 0x00000,transparent:false, opacity:1,  side: THREE.DoubleSide} );
         const Street2 = new THREE.Mesh( Street2Geometry, Street2Material );
         Street2.receiveShadow = true;
         Street2.position.set(0,-0.98,0);
@@ -63,11 +63,11 @@ window.onload = function () {
 
     
         const StreetStripesGeometry = new THREE.PlaneGeometry( 0.25, 1,4,4);
-        const StreetStripesMaterial = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+        const StreetStripesMaterial = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:false, opacity:1,  side: THREE.DoubleSide} );
         
         for (let i=-14;i<=14;i++)
         {
-        const StreetStripe = new THREE.Mesh( StreetStripesGeometry, StreetStripesMaterial );
+        const StreetStripe = new THREE.Mesh( StreetStripesGeometry, StreetStripesMaterial);
         StreetStripe.rotation.x = 0.5* Math.PI;
         StreetStripe.rotation.z = 0.5* Math.PI;
 
@@ -86,7 +86,7 @@ window.onload = function () {
 
 
         const StreetStripesGeometry2 = new THREE.PlaneGeometry( 0.4, 1.8,4,4);
-        const StreetStripesMaterial2 = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+        const StreetStripesMaterial2 = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:false, opacity:1,  side: THREE.DoubleSide} );
         
         for (let i=-3;i<=3;i++)
         {
@@ -118,13 +118,13 @@ window.onload = function () {
     
 
     const Blokgeometry = new THREE.BoxGeometry(3, 8, 3);
-    const Blokmaterial = new THREE.MeshLambertMaterial({ color: 0x808080 });
+    const Blokmaterial = new THREE.MeshLambertMaterial({ color: 0x808080, transparent: false });
 
      const Dachgeometry = new THREE.ConeGeometry(3, 2, 4);
-     const Dachmaterial = new THREE.MeshLambertMaterial({ color: 0x804000 });
+     const Dachmaterial = new THREE.MeshLambertMaterial({ color: 0x804000 , transparent: false});
 
     const Wingeometry = new THREE.PlaneGeometry(0.7, 0.7);
-    const Winmaterial = new THREE.MeshLambertMaterial({ color: 0x3333ff, side: THREE.DoubleSide });
+    const Winmaterial = new THREE.MeshLambertMaterial({ color: 0x3333ff, side: THREE.DoubleSide , transparent: false});
 
 
     function CreateBlok() {
@@ -176,7 +176,7 @@ window.onload = function () {
 
 
     const PathBlokGeometry = new THREE.PlaneGeometry( 1, 28,4,4);
-    const PathBlokMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const PathBlokMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:false, opacity:1,  side: THREE.DoubleSide} );
     const PathBlok = new THREE.Mesh( PathBlokGeometry, PathBlokMaterial );
     PathBlok.receiveShadow = true;
 
@@ -189,7 +189,7 @@ window.onload = function () {
     scene.add( PathBlok );
 
     const PathStreetGeo = new THREE.PlaneGeometry( 1, 60.0,4,4);
-    const PathStreetMat = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const PathStreetMat = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:false, opacity:1,  side: THREE.DoubleSide} );
     const PathStreet = new THREE.Mesh( PathStreetGeo, PathStreetMat );
     PathStreet.receiveShadow = true;
 
@@ -213,7 +213,7 @@ window.onload = function () {
     scene.add( PathStreet2 );
 
     const PathStreetGeo34 = new THREE.PlaneGeometry( 1, 40.0,4,4);
-    const PathStreetMat34 = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const PathStreetMat34 = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:false, opacity:1,  side: THREE.DoubleSide} );
 
     const PathStreet3 = new THREE.Mesh( PathStreetGeo34, PathStreetMat34 );
     PathStreet3.receiveShadow = true;
@@ -240,15 +240,15 @@ window.onload = function () {
   
     
     const Housegeometry = new THREE.BoxGeometry( 3, 2, 3);
-    const Housematerial = new THREE.MeshLambertMaterial( {color: 0xffaa00} );
+    const Housematerial = new THREE.MeshLambertMaterial( {color: 0xffaa00, transparent: false} );
     const Doorgeometry = new THREE.PlaneGeometry( 0.7, 1.3 );
-    const Doormaterial = new THREE.MeshLambertMaterial( {color: 0x804000 , side: THREE.DoubleSide} );
+    const Doormaterial = new THREE.MeshLambertMaterial( {color: 0x804000 , side: THREE.DoubleSide, transparent: false} );
 
 function CreateParking()
 {
    const ParkingGroup = new THREE.Group(); 
    const ParkingGeometry = new THREE.PlaneGeometry( 9, 16, 1, 1 );
-   const ParkingMaterial = new THREE.MeshStandardMaterial( {color: 0x111109, transparent: true, opacity: 1, side: THREE.DoubleSide} );
+   const ParkingMaterial = new THREE.MeshStandardMaterial( {color: 0x111109, transparent: false, opacity: 1, side: THREE.DoubleSide} );
    const Parking = new THREE.Mesh( ParkingGeometry, ParkingMaterial );
    Parking.receiveShadow = true;
  
@@ -260,7 +260,7 @@ function CreateParking()
    ParkingGroup.add(Parking);
 
    const ParkingStripesGeometry = new THREE.PlaneGeometry( 0.15, 2.2,4,4);
-   const ParkingStripesMaterial = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+   const ParkingStripesMaterial = new THREE.MeshLambertMaterial( {color:0xffffff ,transparent:false, opacity:1,  side: THREE.DoubleSide} );
    const ParkingStripesGeometry2 = new THREE.PlaneGeometry( 0.15, 0.3,4,4);
 
    for (let i=-13;i<=-3;i++)
@@ -298,7 +298,7 @@ scene.add(Parking);
 
 function createWheels() {
 const geometry = new THREE.CylinderGeometry( 0.2, 0.2, 1.2, 32);
-const material = new THREE.MeshBasicMaterial( {color: 0x111111} );
+const material = new THREE.MeshBasicMaterial( {color: 0x111111, transparent: false} );
 const wheel = new THREE.Mesh(geometry, material);
 wheel.rotation.x = 0.5* Math.PI;
     return wheel;
@@ -321,7 +321,7 @@ wheel.rotation.x = 0.5* Math.PI;
     {
         const main = new THREE.Mesh(
             new THREE.BoxBufferGeometry(1.5, 0.4, 1),
-            new THREE.MeshLambertMaterial({ color: 0xff0000 })
+            new THREE.MeshLambertMaterial({ color: 0xff0000 , transparent: false})
           );
           main.position.y = 0.3;
           car.add(main);
@@ -330,7 +330,7 @@ wheel.rotation.x = 0.5* Math.PI;
     {
         const main = new THREE.Mesh(
             new THREE.BoxBufferGeometry(1.5, 0.4, 1),
-            new THREE.MeshLambertMaterial({ color: 0xff00ff })
+            new THREE.MeshLambertMaterial({ color: 0xff00ff, transparent: false })
           );
           main.position.y = 0.3;
           car.add(main);
@@ -339,7 +339,7 @@ wheel.rotation.x = 0.5* Math.PI;
     {
         const main = new THREE.Mesh(
             new THREE.BoxBufferGeometry(1.5, 0.4, 1),
-            new THREE.MeshLambertMaterial({ color: 0x145214 })
+            new THREE.MeshLambertMaterial({ color: 0x145214, transparent: false })
           );
           main.position.y = 0.3;
           car.add(main);
@@ -348,7 +348,7 @@ wheel.rotation.x = 0.5* Math.PI;
   
     const cabin = new THREE.Mesh(
       new THREE.BoxBufferGeometry(1, 0.4, 0.7),
-      new THREE.MeshLambertMaterial({ color: 0xffffff })
+      new THREE.MeshLambertMaterial({ color: 0xffffff , transparent: false})
     );
     cabin.position.x = -0.25;
     cabin.position.y = 0.7;
@@ -386,12 +386,12 @@ function CreateSigns(x,z)
 {
     const SignGroup = new THREE.Group(); 
     const Sign1geometry = new THREE.CylinderGeometry( 0.05, 0.05, 1.2, 30 );
-    const Sign1material = new THREE.MeshLambertMaterial( {color:0xb3b3b3 } );
+    const Sign1material = new THREE.MeshLambertMaterial( {color:0xb3b3b3, transparent: false } );
     const Sign1 = new THREE.Mesh( Sign1geometry, Sign1material );
     Sign1.receiveShadow = true;
     Sign1.castShadow = true;  
     const geometry = new THREE.BoxGeometry( 0.5, 0.5, 0.1 );
-    const material = new THREE.MeshLambertMaterial( {color:0xcccc00 } );
+    const material = new THREE.MeshLambertMaterial( {color:0xcccc00 , transparent: false} );
     const cube = new THREE.Mesh( geometry, material );
     cube.position.setY(Sign1geometry.parameters.height * 0.7);
 
@@ -449,12 +449,12 @@ function CreateHouses()
     
 
     const PathGeometry = new THREE.PlaneGeometry( 1, 13,4,4);
-    const PathMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const PathMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:false, opacity:1,  side: THREE.DoubleSide} );
 
 function CreatePath(d,x,z,r)
 {
     const PathGeometry = new THREE.PlaneGeometry( 1, d,4,4);
-    const PathMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const PathMaterial = new THREE.MeshLambertMaterial( {color: 0x3d3d29,transparent:false, opacity:1,  side: THREE.DoubleSide} );
     const Path = new THREE.Mesh( PathGeometry, PathMaterial );
     Path.receiveShadow = true;
     Path.position.y = -0.99;
@@ -487,7 +487,7 @@ function CreateTree(x,z)
     
     const TreeGroup = new THREE.Group(); 
     const Treegeometry = new THREE.CylinderGeometry( 0.1, 0.1, 1, 30 );
-    const Treematerial = new THREE.MeshLambertMaterial( {color: 0x804000} );
+    const Treematerial = new THREE.MeshLambertMaterial( {color: 0x804000, transparent: false} );
     const Tree = new THREE.Mesh( Treegeometry, Treematerial );
     Tree.receiveShadow = true;
     Tree.castShadow = true; 
@@ -497,7 +497,7 @@ function CreateTree(x,z)
     Tree.position.z = z;
     
     const Tree1geometry = new THREE.TetrahedronGeometry(1,2);
-    const Tree1material = new THREE.MeshLambertMaterial({color:0x004d00});
+    const Tree1material = new THREE.MeshLambertMaterial({color:0x004d00, transparent: false});
     const Tree1 = new THREE.Mesh(Tree1geometry, Tree1material); 
     Tree1.castShadow = true;
     Tree1.recieveShadow = true; 
@@ -516,7 +516,7 @@ function CreateFence()
 {
     const FenceGroup = new THREE.Group(); 
     const FenceGeometry = new THREE.BoxGeometry( 0.1, 0.8,0.25);
-    const FenceMaterial = new THREE.MeshLambertMaterial( {color:0x996633 ,transparent:true, opacity:1,  side: THREE.DoubleSide} );
+    const FenceMaterial = new THREE.MeshLambertMaterial( {color:0x996633 ,transparent:false, opacity:1,  side: THREE.DoubleSide} );
     
     for (let i=6;i<=18;i++)
     {
@@ -584,14 +584,14 @@ function CreateFence()
 function CreateBin(x,z)
 {
     const BinGeometry = new THREE.CylinderGeometry( 0.15,0.15, 0.5, 5,5,true);
-    const BinMaterial = new THREE.MeshLambertMaterial( {color: 0x293d3d} );
+    const BinMaterial = new THREE.MeshLambertMaterial( {color: 0x293d3d, transparent: false} );
     const Bin = new THREE.Mesh( BinGeometry, BinMaterial );
     Bin.position.x = x;
     Bin.position.z = z; 
     Bin.position.y = -0.8;
     const BinGroup = new THREE.Group(); 
     const BinRoofgeometry = new THREE.ConeGeometry( 0.2, 0.15, 8 );
-    const BinRoofmaterial = new THREE.MeshLambertMaterial( {color: 0x293d3e} );
+    const BinRoofmaterial = new THREE.MeshLambertMaterial( {color: 0x293d3e, transparent: false} );
     const BinRoof = new THREE.Mesh( BinRoofgeometry, BinRoofmaterial );
     BinRoof.position.x = x;
     BinRoof.position.z = z; 
@@ -635,7 +635,7 @@ for (let i=29;i>=9;i-=10)
 function CreateBench(x,z,r)
 {
     const Benchgeometry = new THREE.BoxGeometry( 0.9, 0.3, 0.3);
-    const Benchmaterial = new THREE.MeshLambertMaterial( {color: 0x804000} );
+    const Benchmaterial = new THREE.MeshLambertMaterial( {color: 0x804000, transparent: false} );
     const Bench = new THREE.Mesh( Benchgeometry, Benchmaterial );
     Bench.position.x = x;
     Bench.position.z = z; 
@@ -662,7 +662,65 @@ function CreateBench(x,z,r)
         scene.add(ParkTree2); 
     }
 
+function CreateBigBlock()
+{
+    const BlokBiggeometry = new THREE.BoxGeometry(22, 10, 13);
+    const BlokBigmaterial = new THREE.MeshLambertMaterial({ color: 0x808080, transparent: false });
+    const BlokBig = new THREE.Mesh(BlokBiggeometry, BlokBigmaterial);
+    BlokBig.receiveShadow = true;
+    BlokBig.castShadow = true;
+    BlokBig.position.set(17,4,-12);
     
+    return BlokBig; 
+}
+
+const TestBlokBig = CreateBigBlock(); 
+scene.add(TestBlokBig); 
+
+// function CreateBlok() {
+//     const group = new THREE.Group();
+
+//     const Blok = new THREE.Mesh(Blokgeometry, Blokmaterial);
+//     Blok.receiveShadow = true;
+//     Blok.castShadow = true;
+
+//     const Dach = new THREE.Mesh(Dachgeometry, Dachmaterial);
+//     Dach.castShadow = true;
+//     Dach.recieveShadow = true;
+//     Dach.position.setY(Blokgeometry.parameters.height / 2 + Dachgeometry.parameters.height / 2)
+//     Dach.rotation.y = 0.25 * Math.PI;
+
+//     for (let j = 1; j <= 2; j++) {
+//         for (let i = 1; i <= 4; i++) {
+//             // console.log('Okno ', i + 1, ': ', Dachgeometry.parameters.height / 4 * i)
+//             const win = CreateWindow();
+//             win.position.setZ(Blokgeometry.parameters.width / 2 + 0.01);
+//             win.position.setY(.9 * Blokgeometry.parameters.height / 4 * i - Blokgeometry.parameters.height / 2);
+//             win.position.setX(.6 * Blokgeometry.parameters.width / 2 * j - Blokgeometry.parameters.width / 2);
+//             group.add(win);
+//         }
+//     }
+
+//     group.position.setY(Blokgeometry.parameters.height / 2 - 1)
+//     group.add(Blok, Dach);
+
+//     return group;
+// }
+
+function CreateLantern(x,z)
+{
+const Lantern = new THREE.Group(); 
+const geometry = new THREE.CylinderGeometry( 0.2, 0.2, 2.5, 40 );
+const material = new THREE.MeshBasicMaterial( {color: 0x3d3d29, transparent: false} );
+const cylinder = new THREE.Mesh( geometry, material );
+Lantern.add( cylinder );
+cylinder.position.set(0,0,0); 
+
+return Lantern; 
+}
+
+const TestLantern = CreateLantern(1,1); 
+scene.add(TestLantern);
 
 
     // position and point the camera to the center of the scene
@@ -677,10 +735,18 @@ function CreateBench(x,z,r)
     scene.add(ambientLight);
 
     // add spotlight for the shadows
-    const spotLight = new THREE.SpotLight(0xffffff);
-    spotLight.position.set(-60, 30, -30);
+    // const spotLight = new THREE.SpotLight(0xffffff);
+    // spotLight.position.set(-60, 30, -30);
+    // spotLight.castShadow = true;
+    // scene.add(spotLight);
+
+    const spotLight = new THREE.SpotLight( 0xfcb92e);
+    spotLight.angle=1;
+    spotLight.position.set( 5,10, -20 );
     spotLight.castShadow = true;
-    scene.add(spotLight);
+    
+    scene.add( spotLight );
+  
 
 
     const geometry = new THREE.BufferGeometry();
@@ -694,7 +760,7 @@ function CreateBench(x,z,r)
     geometry.computeBoundingSphere();
 
     const materials = [
-        new THREE.MeshLambertMaterial({ opacity: 0.6, color: 0x44ff44, transparent: true }),
+        new THREE.MeshLambertMaterial({ opacity: 1, color: 0x44ff44, transparent: false }),
         new THREE.MeshLambertMaterial({ color: 0x00ff00, wireframe: true })
     ];
 
@@ -707,9 +773,14 @@ function CreateBench(x,z,r)
     });
 
     scene.add(mesh);
-
+    
 
     function animate() {
+
+        spotLight.position.x = 50 * Math.sin(Date.now() / 2400);
+        spotLight.position.y = 35 * Math.cos(Date.now() / 2400);
+        renderer.render(scene, camera);
+
 
         requestAnimationFrame(animate);
 
