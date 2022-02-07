@@ -14,6 +14,20 @@
             /* set margin to 0 and overflow to hidden, to go fullscreen */
             margin: 0;
             overflow: hidden;
+            position: relative;
+        }
+        .gui{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, .5);
+            top: 10px;
+            left: 10px;
+            text-align: center;
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
         }
     </style>
     <div> 
@@ -22,8 +36,13 @@
 </head>
 <body>
 <!-- Div which will hold the Output -->
-<div id = "menu"> 
-
+<div class="gui"> 
+    <h2>Camera</h2>
+    <div class="buttons">
+        <button id="btn1">1</button>
+        <button id="btn2">2</button>
+        <button id="btn3">3</button>
+    </div>
 </div>
 <div id="WebGL-output"></div>
 
